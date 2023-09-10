@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS chats (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    last_message BIGSERIAL,
+    subscribers BIGSERIAL[] NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+)

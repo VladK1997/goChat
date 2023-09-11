@@ -2,7 +2,26 @@ CREATE TABLE IF NOT EXISTS chats (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR NOT NULL,
     last_message BIGSERIAL,
-    subscribers BIGSERIAL[] NOT NULL,
+    subscribers INT[] NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP NOT NULL DEFAULT NOW()
-)
+);
+
+CREATE TABLE IF NOT EXISTS messages (
+    id BIGSERIAL PRIMARY KEY,
+    chat_id BIGSERIAL NOT NULL,
+    text VARCHAR NOT NULL,
+    created_by BIGSERIAL NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS users (
+    id BIGSERIAL PRIMARY KEY,
+    username  VARCHAR NOT NULL,
+    avatar    VARCHAR NOT NULL,
+    first_name VARCHAR NOT NULL,
+    last_name  VARCHAR NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+);

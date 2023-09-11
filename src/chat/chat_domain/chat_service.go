@@ -24,8 +24,7 @@ func (c ChatServiceImpl) GetChat(id uint64) (*Chat, error) {
 }
 
 func (c ChatServiceImpl) GetChats(filter *ChatFilter) ([]Chat, error) {
-	//TODO implement me
-	panic("implement me")
+	return c.chatRepo.GetChats(filter)
 }
 
 func (c ChatServiceImpl) CreateChat(chat Chat) (*Chat, error) {

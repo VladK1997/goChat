@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func DeleteTodoHandler(chatService chat_domain.ChatService) fiber.Handler {
+func DeleteChatHandler(chatService chat_domain.ChatService) fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 
 		idStr := ctx.Params("id")

@@ -6,7 +6,7 @@ type Chat struct {
 	ID          uint64
 	Name        string
 	LastMessage uint64
-	Subscribers []uint64
+	Subscribers []uint8
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 }

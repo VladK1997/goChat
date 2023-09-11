@@ -1,16 +1,17 @@
 package chat_http
 
 import (
+	"github.com/fatih/structs"
 	"github.com/gofiber/fiber/v2"
 	"goChat/src/chat/chat_domain"
 )
 
-func CreateTodoHandler(chatService chat_domain.ChatService) fiber.Handler {
+func CreateChatHandler(chatService chat_domain.ChatService) fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 
 		chatDto := ChatDto{}
 
-		if err := ctx.Bind(&chatDto); err != nil {
+		if err := ctx.Bind(structs.Map((&chatDto))); err != nil {
 			return err
 		}
 

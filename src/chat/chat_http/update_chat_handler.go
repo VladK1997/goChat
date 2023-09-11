@@ -1,6 +1,7 @@
 package chat_http
 
 import (
+	"github.com/fatih/structs"
 	"github.com/gofiber/fiber/v2"
 	"goChat/src/chat/chat_domain"
 )
@@ -10,7 +11,7 @@ func UpdateChatHandler(chatService chat_domain.ChatService) fiber.Handler {
 
 		chat := &chat_domain.Chat{}
 
-		if err := ctx.Bind(chat); err != nil {
+		if err := ctx.Bind(structs.Map(chat)); err != nil {
 			return err
 		}
 

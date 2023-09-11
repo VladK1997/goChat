@@ -1,8 +1,10 @@
 package chat_http
 
-import "goChat/src/chat/chat_domain"
+import (
+	"goChat/src/chat/chat_domain"
+)
 
-func ChatFilterFromQuery(query *TodoQuery) *chat_domain.ChatFilter {
+func ChatFilterFromQuery(query *ChatQuery) *chat_domain.ChatFilter {
 	if query == nil {
 		return nil
 	}

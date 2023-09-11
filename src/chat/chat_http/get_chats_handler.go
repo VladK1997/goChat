@@ -1,15 +1,16 @@
 package chat_http
 
 import (
+	"github.com/fatih/structs"
 	"github.com/gofiber/fiber/v2"
 	"github.com/samber/lo"
 	"goChat/src/chat/chat_domain"
 )
 
-func GetTodosHandler(chatService chat_domain.ChatService) fiber.Handler {
+func GetChatsHandler(chatService chat_domain.ChatService) fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
-		query := &TodoQuery{}
-		if err := ctx.Bind(query); err != nil {
+		query := &ChatQuery{}
+		if err := ctx.Bind(structs.Map(query)); err != nil {
 			return err
 		}
 		chats, err := chatService.GetChats(ChatFilterFromQuery(query))
